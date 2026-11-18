@@ -134,3 +134,7 @@ Pushing a tag matching `v*` runs `.github/workflows/release.yml`. The workflow i
 36, restores the dedicated key from GitHub Actions secrets, builds and lints the release APK, verifies
 its signature and static SystemUI scope, generates a SHA-256 checksum, and publishes both files in a
 GitHub release.
+
+## License
+
+[GPL-3.0-or-later](LICENSE)
