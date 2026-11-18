@@ -37,9 +37,6 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
 
-      - name: Install Android SDK 36
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
-
       - name: Restore release signing key
         env:
           SIGNING_KEY_BASE64: ${{ secrets.NOCLEARALL_SIGNING_KEY_BASE64 }}
@@ -58,7 +55,9 @@ jobs:
         run: |
           apk="app/build/outputs/apk/release/app-release.apk"
           release_apk="NoClearAll-${GITHUB_REF_NAME}.apk"
-          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose "$apk"
+          apksigner="$(find "$ANDROID_HOME/build-tools" -mindepth 2 -maxdepth 2 -name apksigner | sort -V | tail -n 1)"
+          test -n "$apksigner"
+          "$apksigner" verify --verbose "$apk"
           test "$(unzip -p "$apk" META-INF/xposed/scope.list)" = "com.android.systemui"
           cp "$apk" "$release_apk"
 

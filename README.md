@@ -130,9 +130,9 @@ which contains both visibility overloads, the click-listener setter, `onFinishIn
 
 ## Automated releases
 
-Pushing a tag matching `v*` runs `.github/workflows/release.yml`. The workflow installs Android SDK
-36, restores the dedicated key from GitHub Actions secrets, builds and lints the release APK, verifies
-its signature and static SystemUI scope, and publishes the APK in a GitHub release.
+Pushing a tag matching `v*` runs `.github/workflows/release.yml`. The workflow restores the
+dedicated key from GitHub Actions secrets, builds and lints the release APK, verifies its signature
+and static SystemUI scope, and publishes the APK in a GitHub release.
 
 ## License
 
