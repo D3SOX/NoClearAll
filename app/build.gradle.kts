@@ -17,12 +17,12 @@ val hasReleaseSigning =
 
 android {
     namespace = "dev.noclearall"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "dev.noclearall"
         minSdk = 35
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 2
         versionName = "1.0.1"
     }
